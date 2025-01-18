@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ОтделениеБанка>
+@{
+    ViewData["Title"] = "Главная страница сайта";
+}
+
+<link rel="stylesheet" href="~/css/StyleHome.css" asp-append-version="true" />
+
+<body>
+    <h1>Нажмите на отделения для регистрации</h1>
+    <div class="container">
+        @foreach (var отделение in Model)
+        {
+            <div class="branch-container">
+                <a href="/Client/Register?branchId=@отделение.ID_Отделения" class="branch">
+                    <img src="@отделение.Photo" alt="Photo">
+                    <div class="overlay">
+                        <div class="text">
+                            <h2>@отделение.НазваниеОтделения</h2>
+                            <p>@отделение.Адрес</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="employee-button">
+                    <a href="/Branch/Employees?branchId=@отделение.ID_Отделения" class="btn-branch-employees">Сотрудники отделения</a>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+
