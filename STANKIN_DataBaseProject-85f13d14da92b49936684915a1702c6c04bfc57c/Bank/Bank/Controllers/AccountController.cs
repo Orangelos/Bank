@@ -125,6 +125,7 @@ namespace Bank.Controllers
         // Метод для обработки открытия счета
         [HttpPost]
         [Authorize]
+        [ValidateAntiForgeryToken]
         public IActionResult OpenAccount(OpenAccountViewModel model)
         {
             if (model.ID_Клиента == null || model.ID_Клиента == 0)
@@ -177,7 +178,7 @@ namespace Bank.Controllers
 
         // Метод для удаления счета
         [HttpPost]
-        
+        [ValidateAntiForgeryToken]
         public IActionResult DeleteAccount(int accountId, int клиентId)
         {
             tupa = accountId;
@@ -238,6 +239,7 @@ namespace Bank.Controllers
 
         // Метод для обработки открытия кредита
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult OpenCredit(OpenСreditModel model)
         {
 

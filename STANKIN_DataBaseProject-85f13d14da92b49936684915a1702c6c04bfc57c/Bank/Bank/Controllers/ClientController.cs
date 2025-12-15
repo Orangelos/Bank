@@ -39,6 +39,7 @@ namespace Bank.Controllers
         int kod;
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Register(ViewVerify model)
         {
             if (!ModelState.IsValid)
@@ -139,6 +140,7 @@ namespace Bank.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Verify(ViewVerify model)
         {
             if (TempData.TryGetValue("Kod", out object kodFromTempData))

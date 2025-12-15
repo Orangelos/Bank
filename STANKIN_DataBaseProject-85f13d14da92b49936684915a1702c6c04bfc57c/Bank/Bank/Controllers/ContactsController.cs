@@ -22,6 +22,7 @@ namespace Bank.Controllers
             }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Check(Contact contact)
         {
             if (ModelState.IsValid)
